@@ -24,6 +24,12 @@ st.markdown(
 st.title("Supercomputer Access Portal")
 st.write("Welcome to DEAC Connect! Use this app to connect to and learn more about HPC resources.")
 
+# Sidebar navigation
+page = st.sidebar.radio(
+    "Home page navigation",
+    ["Linux basics", "Connect to cluster", "Intro to the DEAC", "Cheat sheet", "Bashcrawl (Coming soon!)"]
+)
+
 #Interactive portion
 
 allowed_commands = ["ls", "pwd", "cat", "echo"]
@@ -57,18 +63,18 @@ if st.button("Connect to Cluster"):
     )
 
 # Button to learn about the supercomputer
-if st.button("Learn about Wake's supercomputer!"):
+if st.button("Learn about Wake's supercomputer! #COMMENT: make this a readme file to keep outside of using internet?"):
     st.write("Opening supercomputer info...")
     st.markdown(
         "[Go to WFU Deac information website](https://news.wfu.edu/2022/03/31/high-performance-computing-collaborations-p)",
         unsafe_allow_html=True
     )
 # Button to get to command cheat sheet
-if st.button("Linux command cheat sheet"):
+if st.button("Linux command cheat sheet #COMMENT: make this a readme file to keep outside of using internet?"):
     st.write("Accessing document...")
     st.markdown("[Command cheat sheet document](https://docs.google.com/document/d/1XdjdXbHq5_yH27qZmwNT5LrSORgitLDd9gy8GlADl_k/edit?usp=sharing)", unsafe_allow_html=True)
 
-# Button to get to bashcrawl
+# Button to get to bashcrawl -- interactive portion
 if st.button("Bashcrawl: learn how to use commands through a game!"):
     st.write("Accessing document...")
     st.markdown("[Bashcrawl game instructions document](https://docs.google.com/document/d/1wXQGkRkD1tvM2-y9DoZKudt-WQpaC6nz4qLeBAKMBlo/edit?usp=sharing)", unsafe_allow_html=True)
