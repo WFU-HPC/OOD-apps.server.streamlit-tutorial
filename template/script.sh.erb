@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# make sure module command is available
+. /usr/share/Modules/init/bash
+
+echo "Starting main script..."
+echo "TTT - $(date)"
+
+set -x
+
+# activate the environment
+module load envs/xllm
+
+# launch Streamlit
+streamlit run ./sample.py --logger.level="debug"
+
+echo "TTT - $(date)"

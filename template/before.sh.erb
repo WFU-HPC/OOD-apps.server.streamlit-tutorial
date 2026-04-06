@@ -1,0 +1,25 @@
+# Export the module function if it exists
+
+# Find available port to run server on
+port=$(find_port ${host})
+
+export FORWARDED_ALLOW_IPS="127.0.0.1,10.1.53.232"
+
+export SAMPLE="${PWD}/sample.py"
+
+mkdir -p .streamlit
+cat << EOF > .streamlit/config.toml
+[server]
+address = "${host}"
+port = "${port}"
+baseUrlPath = "node/${host}/${port}"
+
+enableCORS = false
+EOF
+
+cat > "${SAMPLE}" << EOF
+#!/deac/inf/adminGrp/stevca9/XLLM/bin/python3
+import streamlit as st
+
+"Hello, World!"
+EOF

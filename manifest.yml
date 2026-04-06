@@ -1,0 +1,7 @@
+---
+name: Streamlit
+category: Interactive Apps
+subcategory: DEAC Apps
+role: batch_connect
+description: |
+  This app will launch a dashboard with Streamlit.
