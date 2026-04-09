@@ -9,9 +9,9 @@ echo "TTT - $(date)"
 set -x
 
 # activate the environment
-module load envs/xllm
+module load envs/streamlit
 
 # launch Streamlit
-streamlit run ./sample.py --logger.level="debug"
+streamlit run ./app.py --logger.level="debug"
 
 echo "TTT - $(date)"
