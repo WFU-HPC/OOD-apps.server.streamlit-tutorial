@@ -1,3 +1,5 @@
+#Cheat sheet page
+
 import streamlit as st
 
 # Background styling
@@ -9,7 +11,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Linux Command Cheat Sheet")
+st.title("Linux Command Cheat Sheet 📚")
 
 st.write("Quick reference for common Linux commands:")
 

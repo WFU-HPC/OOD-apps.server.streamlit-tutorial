@@ -14,7 +14,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Intro to the DEAC")
+st.title("Intro to the DEAC 🖱️")
 
 st.markdown("""
 Welcome to DEAC! Wake Forest's supercomputer, powering over 16 departments across campus.  

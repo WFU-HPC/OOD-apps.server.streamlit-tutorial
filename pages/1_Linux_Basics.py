@@ -17,7 +17,7 @@ st.markdown(
 
 
 
-st.title("Linux Basics")
+st.title("Linux Basics 💻")
 
 st.write("Try basic Linux commands safely:")
 

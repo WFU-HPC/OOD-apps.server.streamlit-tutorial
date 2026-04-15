@@ -15,7 +15,7 @@ st.markdown(
 )
 
 
-st.title("Connect to Cluster")
+st.title("Connect to Cluster 💻")
 
 st.write("Access Wake Forest's DEAC cluster:")
 
