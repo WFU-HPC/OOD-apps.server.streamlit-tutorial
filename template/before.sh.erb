@@ -100,8 +100,6 @@ if st.button("Linux command cheat sheet #COMMENT: make this a readme file to kee
 if st.button("Bashcrawl: learn how to use commands through a game!"):
     st.write("Accessing document...")
     st.markdown("[Bashcrawl game instructions document](https://docs.google.com/document/d/1wXQGkRkD1tvM2-y9DoZKudt-WQpaC6nz4qLeBAKMBlo/edit?usp=sharing)", unsafe_allow_html=True)
-
-
 EOF
 
 cat > pages/1_Linux_Basics.py << EOF
@@ -124,7 +122,7 @@ st.markdown(
 
 
 
-st.title("Linux Basics")
+st.title("Linux Basics 💻")
 
 st.write("Try basic Linux commands safely:")
 
@@ -158,7 +156,7 @@ with st.expander("Click to try Linux commands"):
 EOF
 
 cat > pages/2_Connect_to_Cluster.py << EOF
-#Connecting to cluster page
+#Connecting to cluster page 
 
 import streamlit as st
 
@@ -175,14 +173,14 @@ st.markdown(
 )
 
 
-st.title("Connect to Cluster")
+st.title("Connect to Cluster 💻")
 
 st.write("Access Wake Forest's DEAC cluster:")
 
 if st.button("Connect to Cluster"):
     st.markdown(
         "[Go to WFU DEAC Dashboard](https://csc.deac.wfu.edu/pun/sys/dashboard)"
-      )
+    )
 EOF
 
 cat > pages/3_Intro_to_DEAC.py << EOF
@@ -202,33 +200,35 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Intro to the DEAC")
+st.title("Intro to the DEAC 🖱️")
 
 st.markdown("""
-Welcome to DEAC! Wake Forest's supercomputer, powering over 16 departments across campus.
-The system processed over 21 million core-hours and more than 650,000 tasks last year. Since 2020,
-the High Performance Computer (HPC) has had over 3 million tasks submitted to its system.
+Welcome to DEAC! Wake Forest's supercomputer, powering over 16 departments across campus.  
+The system processed over 21 million core-hours and more than 650,000 tasks last year. Since 2020, 
+the High Performance Computer (HPC) has had over 3 million tasks submitted to its system. 
 It was initially developed in July 2002 to centralize computing environment for Wake Forest.
 
-This resource enables staff, faculty, and students to accelerate their research and not let
-technology hold them back.  With over 500 accounts on the DEAC (a growing number!), the system
-has 90 compute nodes, 4,500 CPU cores, 38 TB of memory, and 280 TB of storage.  These numbers and
-variables may be unfamiliar, and that's ok! Think of a regular laptop as a bike and Wake's HPC
-system as an Airbus A380. Not only does the supercomputer have more power, and not only can it
+This resource enables staff, faculty, and students to accelerate their research and not let 
+technology hold them back.  With over 500 accounts on the DEAC (a growing number!), the system 
+has 90 compute nodes, 4,500 CPU cores, 38 TB of memory, and 280 TB of storage.  These numbers and 
+variables may be unfamiliar, and that's ok! Think of a regular laptop as a bike and Wake's HPC 
+system as an Airbus A380. Not only does the supercomputer have more power, and not only can it 
 do tasks much faster, it's operating at a completely different level!
 
 This is extremely important for present-day researchers. Being able to split data, run sets quickly
 and efficiently, and have access to a resource with much more computing power that can be accessed simply
 through a personal laptop is revolutionary. Students can also use this resource! Using the HPC system is a
 great way to get more practice with Linux (the operating system used on the DEAC), understanding the power
-and need for resources such as a supercomputer at institutions at Wake, and more.
+and need for resources such as a supercomputer at institutions at Wake, and more. 
 
-information gathered from Wake Forest's HPC news article:
-https://news.wfu.edu/2022/03/31/high-performance-computing-collaborations-power-research-learning/
+information gathered from Wake Forest's HPC news article: 
+https://news.wfu.edu/2022/03/31/high-performance-computing-collaborations-power-research-learning/ 
 """)
 EOF
 
 cat > pages/4_Cheat_Sheet.py << EOF
+#Cheat sheet page
+
 import streamlit as st
 
 # Background styling
@@ -240,64 +240,113 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Linux Command Cheat Sheet")
+st.title("Linux Command Cheat Sheet 📚")
 
 st.write("Quick reference for common Linux commands:")
 
 st.markdown("""
-**What is Linux?**
+**What is Linux?**  
 Linux is the operating system that the DEAC runs on. This means it runs programs, manages files, software, and hardware, allocates resources, transfers data between the hard drive and memory, and much more!
 
---- Common Linux commands ---
-- mkdir -- creates a directory where files can be stored. Must have a different name than other directories (can use the command "mkdir -p" to always create a parent directory). Ex: mkdir /home/$USERNAME/activities
-- mkdir -p -- safer option when creating directories; will not throw error if directory already exists
-- cat -- view file contents, ex: `cat project1.txt`
-- ls -- list files in current directory
-- pwd -- print working directory
-- echo -- display text or variables
-- cd -- change directory
-- export -- create new environment variables
+--- Common Linux commands ---  
+- mkdir -- creates a directory where files can be stored. Must have a different name than other directories (can use the command "mkdir -p" to always create a parent directory). Ex: mkdir /home/$USERNAME/activities  
+- mkdir -p -- safer option when creating directories; will not throw error if directory already exists  
+- cat -- view file contents, ex: `cat project1.txt`  
+- ls -- list files in current directory  
+- pwd -- print working directory  
+- echo -- display text or variables  
+- cd -- change directory  
+- export -- create new environment variables  
 - man -- read the manual for commands, ex: `man mkdir` or `man pwd`
 """)
 
 st.markdown("""
---- Slurm Commands ---
-- squeue -- shows current jobs submitted to the cluster
-- sbatch -- submit a job to the scheduler
-- sacct -- show job history and status
+--- Slurm Commands ---  
+- squeue -- shows current jobs submitted to the cluster  
+- sbatch -- submit a job to the scheduler  
+- sacct -- show job history and status  
 - nano -- edit .slurm files
 """)
 
 st.markdown("""
---- Module system commands ---
-- module avail -- show installed software packages
-- module show -- show info about a software package
-- module load -- load a software package
+--- Module system commands ---  
+- module avail -- show installed software packages  
+- module show -- show info about a software package  
+- module load -- load a software package  
 - module purge -- reset loaded modules
+""")
 EOF
 
 cat > pages/5_Bsahcrawl.py << EOF
 #Bashcrawl page
 
 import streamlit as st
+import subprocess
+import os
 
-# Background styling
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #C4C3D0;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# 1. Page Config
+st.set_page_config(page_title="BashCrawl")
+st.markdown("<style>.stApp {background-color: #C4C3D0;}</style>", unsafe_allow_html=True)
 
-st.title("Bashcrawl (Coming Soon!)")
+st.title("⚔️ BashCrawl Adventure ⚔️ ")
+st.markdown("Do not stress if you get confused, you can always restart!")
+st.markdown("When stuck, remember to check your location, read the outputs, and try different commands (pwd, ls, cat, cd). Check out the command cheat sheet if you need some direction!")
 
-st.write("Learn Linux through a game!")
+# 2. Robust Path Finding
+# This finds the 'bashcrawl' folder sitting next to your 'pages' folder
+CURRENT_SCRIPT_PATH = os.path.dirname(os.path.abspath(__file__)) # inside 'pages'
+BASE_APP_DIR = os.path.dirname(CURRENT_SCRIPT_PATH)             # 'my_streamlit_app'
+GAME_DIR = os.path.join(BASE_APP_DIR, "bashcrawl")
 
-st.markdown(
-    "[Open Bashcrawl Instructions](https://docs.google.com/document/d/1wXQGkRkD1tvM2-y9DoZKudt-WQpaC6nz4qLeBAKMBlo/edit)"
-)
+# 3. Initialize Game State
+if 'current_path' not in st.session_state or not os.path.exists(st.session_state.current_path):
+    st.session_state.current_path = os.path.join(GAME_DIR, "entrance")
+
+# 4. Terminal Interface
+with st.expander("Terminal Console", expanded=True):
+    # Display current location relative to the game folder
+    try:
+        display_path = os.path.relpath(st.session_state.current_path, GAME_DIR)
+    except:
+        display_path = "entrance"
+        st.session_state.current_path = os.path.join(GAME_DIR, "entrance")
+        
+    st.info(f"📍 **Location:** `bashcrawl/{display_path}`")
+
+    user_input = st.text_input("Enter command:", key="bash_input").strip()
+
+    if user_input:
+        parts = user_input.split()
+        if not parts:
+            st.rerun()
+        
+        cmd = parts[0].lower()
+        allowed = ["ls", "pwd", "cat", "cd", "help", "clear"]
+
+        if cmd in allowed:
+            # Handle 'cd' (Change Directory)
+            if cmd == "cd":
+                target = parts[1] if len(parts) > 1 else ".."
+                new_path = os.path.normpath(os.path.join(st.session_state.current_path, target))
+                
+                if new_path.startswith(GAME_DIR) and os.path.isdir(new_path):
+                    st.session_state.current_path = new_path
+                    st.rerun()
+                else:
+                    st.error("You can't go that way!")
+            
+            # Handle other commands
+            else:
+                result = subprocess.run(
+                    user_input, shell=True, cwd=st.session_state.current_path,
+                    capture_output=True, text=True
+                )
+                if result.stdout: st.code(result.stdout, language="bash")
+                if result.stderr: st.error(result.stderr)
+        else:
+            st.error(f"Command '{cmd}' not allowed. Try: ls, cd, cat, pwd")
+
+if st.button("Reset to Entrance"):
+    st.session_state.current_path = os.path.join(GAME_DIR, "entrance")
+    st.rerun()
 EOF
