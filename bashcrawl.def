@@ -1,0 +1,42 @@
+Bootstrap: docker
+From: python:3.11-slim
+
+%files
+    app.py /app/app.py
+    
+    # Copy your source code directory (e.g., a folder named 'src')
+    # If your files are in the root, you can use: . /app/
+    pages/ /app/pages/
+    entrance/ /app/entrance/
+
+%environment
+    # Set environment variables for Streamlit
+    export LC_ALL=C.UTF-8
+    export LANG=C.UTF-8
+    # Prevent Python from writing .pyc files
+    export PYTHONDONTWRITEBYTECODE=1
+    # Ensure the /app directory is in the python path
+    export PYTHONPATH="/app/:$PYTHONPATH"
+
+%post
+    # Update and install any system-level dependencies if needed
+    apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+        curl \
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/*
+
+    # Upgrade pip and install streamlit plus your requirements
+    pip install --no-cache-dir --upgrade pip
+    pip install --no-cache-dir streamlit
+    
+%runscript
+    # This command runs when you call 'apptainer run'
+    # We use 'cd' to ensure streamlit finds relative assets
+    cd /app/
+    exec streamlit run app.py --logger.level="debug"
+
+%help
+    This container runs a Streamlit application.
+    To run the container:
+        apptainer run bashcrawl.sif

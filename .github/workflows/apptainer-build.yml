@@ -1,0 +1,41 @@
+name: Build Apptainer Image
+
+on:
+  push:
+    paths:
+      - '**.def'  # Trigger only when a .def file is modified
+  pull_request:
+    paths:
+      - '**.def'
+  workflow_dispatch: # Allows you to run this manually from the Actions tab
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    # Grant permissions to the GITHUB_TOKEN
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Apptainer
+        uses: eic/setup-apptainer@v3
+        with:
+          apptainer-version: '1.4.5' # Specify your preferred version
+
+      - name: Build Container
+        run: |
+          # If you have one specific file, use its name. 
+          # This example builds 'container.def' into 'container.sif'
+          # Using --fakeroot is necessary on GitHub runners
+          apptainer build --fakeroot bashcrawl.sif bashcrawl.def
+
+
+      - name: Login to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | apptainer remote login -u ${{ github.actor }} --password-stdin oras://ghcr.io
+
+      - name: Push to GHCR
+        run: |
+          apptainer push bashcrawl.sif oras://ghcr.io/wfu-hpc/bashcrawl:latest
