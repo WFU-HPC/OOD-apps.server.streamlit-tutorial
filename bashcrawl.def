@@ -40,3 +40,4 @@ From: python:3.11-slim
     This container runs a Streamlit application.
     To run the container:
         apptainer run bashcrawl.sif
+
