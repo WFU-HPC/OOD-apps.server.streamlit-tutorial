@@ -41,7 +41,7 @@ jobs:
           # If you have one specific file, use its name. 
           # This example builds 'container.def' into 'container.sif'
           # Using --fakeroot is necessary on GitHub runners
-          apptainer build --fakeroot bashcrawl.sif bashcrawl.def
+          apptainer build --fakeroot deacquest.sif deacquest.def
 
 
       - name: Login to GitHub Container Registry
@@ -49,4 +49,4 @@ jobs:
 
       - name: Push to GHCR
         run: |
-          apptainer push bashcrawl.sif oras://ghcr.io/wfu-hpc/bashcrawl:latest
+          apptainer push deacquest.sif oras://ghcr.io/wfu-hpc/deacquest:latest
