@@ -1,0 +1,1 @@
+Welcome to Bashcrawl! This adventure game is used to help you get used to the basic Linux commands.  Use 'ls' to see the doors (folders) and 'cat' to read scrolls (files).
