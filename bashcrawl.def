@@ -6,8 +6,8 @@ From: python:3.11-slim
     
     # Copy your source code directory (e.g., a folder named 'src')
     # If your files are in the root, you can use: . /app/
-    pages/ /app/pages/
-    entrance/ /app/entrance/
+    pages/ /app/
+    entrance/ /app/
 
 %environment
     # Set environment variables for Streamlit
