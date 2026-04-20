@@ -8,6 +8,7 @@ From: python:3.11-slim
     # If your files are in the root, you can use: . /app/
     pages/ /app/
     entrance/ /app/
+    
 
 %environment
     # Set environment variables for Streamlit
