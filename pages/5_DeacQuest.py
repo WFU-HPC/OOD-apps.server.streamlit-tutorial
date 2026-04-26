@@ -9,7 +9,8 @@ st.set_page_config(page_title="DeacQuest")
 st.markdown("<style>.stApp {background-color: #C4C3D0;}</style>", unsafe_allow_html=True)
 
 st.title("⚔️ DeacQuest Adventure ⚔️ ")
-st.markdown("Do not stress if you get confused, you can always restart with the button at the bottom! Keep track of your coins, you will need that information to beat the game!")
+st.markdown("Do not stress if you get confused, you can always restart with the button at the bottom! 
+Keep track of your coins, you will need that information to beat the game!")
 st.markdown("When stuck, remember to check your location, read the outputs, and try different commands (pwd, ls, cat, cd).")
 
 # 2. Path Finding
